@@ -1,1 +1,41 @@
-after install any version of ros on ubunto on the visual macheine you(you can find how to install all of this in another represintry on my acoount under the tittle"steps of install ros") can install package arm to controll it 
+in this file I wrote specific steps that install the arm package on ros which will operate on RViz program **hint**>> you can find the fully steps of  install ros on ubunto and install the arm package in one file in another repository on my acoount under the tittle"steps of install ros on ubuntu " 
+
+ 1 - now we will install catkin which from it we can make workspace ,*hint* here i named the workspace by catkin_ws but you can name it anythig else if you want
+    sudo apt-get install ros-noetic-catkin
+    then we will craet file inside it 
+    mkdir -p ~/catkin_ws/src
+     then
+      cd ~/catkin_ws/
+     then we will install inside file src all the packages that related to arm
+      catkin_make
+      then 
+      cd ~/catkin_ws/src
+     then 
+      git clone https://github.com/smart-methods/arduino_robot_arm.git 
+      then
+      cd ~/catkin_ws
+    then to install some packages from ros 
+      rosdep install --from-paths src --ignore-src -r -y
+    then
+     sudo apt-get install ros-kinetic-moveit
+   then
+     sudo apt-get install ros-kinetic-joint-state-publisher ros-kinetic-joint-state-publisher-gui
+   then
+    sudo apt-get install ros-kinetic-gazebo-ros-control joint-state-publisher
+   then
+     sudo apt-get install ros-kinetic-ros-controllers ros-kinetic-ros-control
+ 2-now we have to put the source file of setup.bash inside bashrc so continue to put the below commands
+     sudo nano ~/.bashrc
+      after write this command you have to move to the last commands that appear on the terminal screen to write the next command, you have to write the name of your machine that will appear in the next line to know yhat go to the files >home>catkin_ws >devel> click right on the file "setup.bash" >properties> then at paren folder you will find thelink of the filewith your own name machine so then you can copy it and adding at the beginning the word "sourc" and at the end " /setup.bash "  , as i wrote in the next line  
+    source /home/esra/catkin_ws/devel/setup.bash     
+   then 
+    ctrl + o
+   then
+    pree enter 
+   then
+     ctrl + x
+    then 
+     source ~/.bashrc
+     
+ 3-finally write last command below to operate the program RVis
+       roslaunch robot_arm_pkg check_motors.launch
