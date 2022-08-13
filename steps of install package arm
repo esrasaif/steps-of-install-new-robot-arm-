@@ -39,3 +39,6 @@ in this file I wrote specific steps that install the arm package on ros which wi
      
  3-finally write last command below to operate the program RVis
        roslaunch robot_arm_pkg check_motors.launch
+       
+       
+      after you wrote the command the program of RViz will appear on the screan on your machine **i put the photo in the same repository you can watch it 
